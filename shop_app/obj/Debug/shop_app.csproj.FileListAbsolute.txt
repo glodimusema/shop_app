@@ -1,0 +1,13 @@
+C:\Users\Glodi\source\repos\shop_app\shop_app\bin\Debug\shop_app.exe.config
+C:\Users\Glodi\source\repos\shop_app\shop_app\bin\Debug\shop_app.exe
+C:\Users\Glodi\source\repos\shop_app\shop_app\bin\Debug\shop_app.pdb
+C:\Users\Glodi\source\repos\shop_app\shop_app\obj\Debug\shop_app.csprojResolveAssemblyReference.cache
+C:\Users\Glodi\source\repos\shop_app\shop_app\obj\Debug\shop_app.Form1.resources
+C:\Users\Glodi\source\repos\shop_app\shop_app\obj\Debug\shop_app.Formulaire.frmClient.resources
+C:\Users\Glodi\source\repos\shop_app\shop_app\obj\Debug\shop_app.Properties.Resources.resources
+C:\Users\Glodi\source\repos\shop_app\shop_app\obj\Debug\shop_app.csproj.GenerateResource.Cache
+C:\Users\Glodi\source\repos\shop_app\shop_app\obj\Debug\shop_app.csproj.CoreCompileInputs.cache
+C:\Users\Glodi\source\repos\shop_app\shop_app\obj\Debug\shop_app.exe
+C:\Users\Glodi\source\repos\shop_app\shop_app\obj\Debug\shop_app.pdb
+C:\Users\Glodi\source\repos\shop_app\shop_app\obj\Debug\shop_app.Formulaire.frmCategorie.resources
+C:\Users\Glodi\source\repos\shop_app\shop_app\obj\Debug\shop_app.Formulaire.FrmProduit.resources

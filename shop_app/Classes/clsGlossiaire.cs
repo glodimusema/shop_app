@@ -40,7 +40,7 @@ namespace shop_app.Classes
 
         //LES INSERTIONS ======================================
 
-        public void saveClient(clsClient cli)
+        public void insertClient(clsClient cli)
         {
             try
             {
@@ -58,9 +58,91 @@ namespace shop_app.Classes
             {
                 MessageBox.Show(ex.Message);
             }
-
-
         }
+
+
+        public void saveCategorie(clsCategorie cli)
+        {
+            try
+            {
+                InnitialiseConnexion();
+                con.Open();
+                cmd = new SqlCommand("EXEC saveCategorie @id,@nom_categorie", con);
+                cmd.Parameters.AddWithValue("@id", cli.Id);
+                cmd.Parameters.AddWithValue("@nom_categorie", cli.Nom_categorie);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        public void saveProduit(clsProduit cli)
+        {
+            try
+            {
+                InnitialiseConnexion();
+                con.Open();
+                cmd = new SqlCommand("EXEC saveProduit @id,@nom_produit,@prix_unitaire,@refCategorie", con);
+                cmd.Parameters.AddWithValue("@id", cli.Id);
+                cmd.Parameters.AddWithValue("@nom_produit", cli.Nom_produit);
+                cmd.Parameters.AddWithValue("@prix_unitaire", cli.Prix_unitaire);
+                cmd.Parameters.AddWithValue("@refCategorie", cli.RefCategorie);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        public void saveEnteteVente(clsEnteteVente cli)
+        {
+            try
+            {
+                InnitialiseConnexion();
+                con.Open();
+                cmd = new SqlCommand("EXEC saveEnteteVente @id,@refClient,@dateVente", con);
+                cmd.Parameters.AddWithValue("@id", cli.Id);
+                cmd.Parameters.AddWithValue("@refClient", cli.RefClient);
+                cmd.Parameters.AddWithValue("@dateVente", cli.DateVente);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        public void saveDetailVente(clsDetailVente cli)
+        {
+            try
+            {
+                InnitialiseConnexion();
+                con.Open();
+                cmd = new SqlCommand("EXEC saveDetailVente @id,@refEntete,@refProduit,@qte,@pu", con);
+                cmd.Parameters.AddWithValue("@id", cli.Id);
+                cmd.Parameters.AddWithValue("@refEntete", cli.RefEntete);
+                cmd.Parameters.AddWithValue("@refProduit", cli.RefProduit);
+                cmd.Parameters.AddWithValue("@qte", cli.Qte);
+                cmd.Parameters.AddWithValue("@pu", cli.Pu);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
 
         public DataTable loadData(string nomTable)
         {

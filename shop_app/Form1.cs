@@ -1,4 +1,5 @@
-﻿using System;
+﻿using shop_app.Formulaire;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,24 @@ namespace shop_app
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmClient c = new frmClient();
+            c.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmCategorie cat = new frmCategorie();
+            cat.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmProduit pr = new FrmProduit();
+            pr.ShowDialog();
         }
     }
 }

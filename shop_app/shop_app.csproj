@@ -58,8 +58,38 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulaire\frmCategorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulaire\frmCategorie.Designer.cs">
+      <DependentUpon>frmCategorie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulaire\frmClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulaire\frmClient.Designer.cs">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulaire\FrmProduit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulaire\FrmProduit.Designer.cs">
+      <DependentUpon>FrmProduit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulaire\frmCategorie.resx">
+      <DependentUpon>frmCategorie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulaire\frmClient.resx">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulaire\FrmProduit.resx">
+      <DependentUpon>FrmProduit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -83,7 +113,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Formulaire\" />
     <Folder Include="Rapports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
