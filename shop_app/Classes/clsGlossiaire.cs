@@ -38,6 +38,27 @@ namespace shop_app.Classes
             }
         }
 
+
+        private static void setParameter(SqlCommand cmd, string name, DbType type, int length, object paramValue)
+        {
+            IDbDataParameter a = cmd.CreateParameter();
+            a.ParameterName = name;
+            a.Size = length;
+            a.DbType = type;
+
+            if (paramValue == null)
+            {
+                if (!a.IsNullable)
+                {
+                    a.DbType = DbType.String;
+                }
+                a.Value = DBNull.Value;
+            }
+            else
+                a.Value = paramValue;
+            cmd.Parameters.Add(a);
+        }
+
         //LES INSERTIONS ======================================
 
         public void insertClient(clsClient cli)
@@ -225,5 +246,85 @@ namespace shop_app.Classes
 
 
 
+
+
+        public DataSet get_Report_All(string nomTable)
+        {
+            DataSet dst;
+            try
+            {
+                InnitialiseConnexion();
+                if (!con.State.ToString().ToLower().Equals("open")) con.Open();
+                cmd = new SqlCommand("SELECT * FROM " + nomTable + "", con);
+                dt = new SqlDataAdapter(cmd);
+                dst = new DataSet();
+                dt.Fill(dst, nomTable);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                dt.Dispose(); con.Close();
+            }
+            return dst;
+        }
+        public DataSet get_Report_Trier(string nomTable, string nomchamp, DateTime val1, DateTime val2)
+        {
+            DataSet dst;
+            try
+            {
+                InnitialiseConnexion();
+                if (!con.State.ToString().ToLower().Equals("open")) con.Open();
+                cmd = new SqlCommand("SELECT * FROM " + nomTable + " WHERE " + nomchamp + " between @date1 and @date2 ", con);
+                setParameter(cmd, "@date1", DbType.DateTime, 30, val1);
+                setParameter(cmd, "@date2", DbType.DateTime, 30, val2);
+                dt = new SqlDataAdapter(cmd);
+                dst = new DataSet();
+                dt.Fill(dst, nomTable);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                dt.Dispose(); con.Close();
+            }
+            return dst;
+        }
+
+        public DataSet get_Report_One(string nomTable, string nomchamp, string val1)
+        {
+            DataSet dst;
+            try
+            {
+                InnitialiseConnexion();
+                if (!con.State.ToString().ToLower().Equals("open")) con.Open();
+                cmd = new SqlCommand("SELECT * FROM " + nomTable + " WHERE " + nomchamp + " = @val1 ", con);
+                setParameter(cmd, "@val1", DbType.String, 30, val1);
+                dt = new SqlDataAdapter(cmd);
+                dst = new DataSet();
+                dt.Fill(dst, nomTable);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                dt.Dispose(); con.Close();
+            }
+            return dst;
+        }
+
+
+
     }
+
+
+
+
 }
+

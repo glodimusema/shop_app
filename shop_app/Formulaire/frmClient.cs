@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using shop_app.Classes;
+using shop_app.Rapports;
+using DevExpress.XtraReports.UI;
 
 namespace shop_app.Formulaire
 {
@@ -71,6 +73,21 @@ namespace shop_app.Formulaire
         private void button4_Click(object sender, EventArgs e)
         {
             InsertUpdateDelete(3);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                rpt_ListeCLients rpt = new rpt_ListeCLients();
+                rpt.DataSource = clsGlossiaire.GetInstance().get_Report_All("tClient");
+                using (ReportPrintTool printTool = new ReportPrintTool(rpt))
+                {
+                    printTool.ShowPreviewDialog();
+                }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
     }
 }

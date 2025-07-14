@@ -44,6 +44,7 @@
             this.liste_data = new System.Windows.Forms.DataGridView();
             this.txtRecherche = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.liste_data)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,11 +201,22 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Recherche :";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(849, 162);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(163, 81);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "Imprimer";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // frmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 676);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.txtRecherche);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.liste_data);
@@ -249,5 +261,6 @@
         private System.Windows.Forms.DataGridView liste_data;
         private System.Windows.Forms.TextBox txtRecherche;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button5;
     }
 }
